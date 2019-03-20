@@ -1,0 +1,42 @@
+﻿@model MVC_Movie.Models.Movie_details
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Movie_details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Actor.Actor_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Actor.Actor_name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Movie.Movie_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Movie.Movie_name)
+        </dd>
+        
+        <dt>
+            @Html.DisplayNameFor(model => model.Producer.Producer_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Producer.Producer_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Movie_details_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,54 @@
+﻿@model IEnumerable<MVC_Movie.Models.Movie_details>
+
+@{
+    ViewBag.Title = "Index";
+}
+<head>
+    <link href="~/Content/SearchTab.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/search.js"></script>
+</head>
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    <input style="float:right" type="text" name="search" id="myInput" onkeyup="myFunction()" placeholder="Search for Movies.." title="Type in a Movies" />
+</p>
+<table class="table" id="myTable">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Actor.Actor_name)
+        </th>
+
+        <th>
+            @Html.DisplayNameFor(model => model.Movie.Movie_name)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.Producer.Producer_name)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Actor.Actor_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Movie.Movie_name)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.Producer.Producer_name)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.Movie_details_id }) |
+            @Html.ActionLink("Details", "Details", new { id = item.Movie_details_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.Movie_details_id })
+        </td>
+    </tr>
+}
+
+</table>
